@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Manage Officer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  <section class="hero is-info">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-96x96">
+                  <br><img src="./img/logo.png">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <h1 class="title">
+                      ระบบจัดการการสอบ
+                    </h1>
+                    <h2 class="subtitle">
+                      มหาวิทยาลัยบูรพา
+                    </h2><br>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- ปุ่มออกจากระบบ -->
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="/login">
+                ออกจากระบบ
+            </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section has-background-light">
+    <div class="container">
+      <div class="columns">
+        <!-- left menu -->
+        <div class="column is-2 ">
+          <div class="box ">
+            <aside class="menu">
+              <ul class="menu-list">
+                <li><a href="/main">หน้าหลัก</a></li>
+                <li><a href="/main">ถอยกลับ</a></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+
+        <!-- box -->
+        <div class="column is-10">
+          <div class="content is-medium">
+            <div class="box">
+              <h4 id="const" class="title is-3 has-text-centered">จัดการเจ้าหน้าที่</h4>
+              <div class="container">
+                <div class="columns">
+                  <div class="column is-9">
+                    <table class="table is-fullwidth">
+                      <thead>
+                        <td>
+                          <a href="/officer/manageOfficerCreate/<%= officer[i] %>"  class="button is-success">+เพิ่ม</a>
+                        </td>
+                        <tr>
+                          <td><b>ลำดับ</b></td>
+                          <td><b>ชื่อ - นามสกุล</b></td>
+                          <td colspan="3"><b></b></td>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                        <% var count = 0; %>
+                        <% for(var i=0; i < officer.length; i++) { %>
+                        <% if (officer[i].status == "stay") { %>
+                        <tr>
+                          <td><%= count += 1 %></td>
+                          <td><%= officer[i].name %></td>
+                          <td><a href="/officer/manageOfficerSee/<%= officer[i]._id %>" class="button is-info">ดู</a>
+                          </td>
+                          <td><a href="/officer/manageOfficerEdit/<%= officer[i]._id %>"
+                            class="button is-link">แก้ไข</a></td>
+                        </tr>
+                        <% } %>
+                        <% } %>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+</body>
+</html>

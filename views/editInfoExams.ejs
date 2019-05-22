@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>แก้ไขข้อมูลการสอบ</title>
+    <!-- logo title -->
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+    <meta charset="UTF-8">
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png"> -->
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.4/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel='stylesheet' href="../css/prism.css">
+    <link rel="stylesheet" href="../css/cheatsheet.css">
+
+</head>
+
+<body>
+    <!-- หัวเว็บ -->
+    <section class="hero is-info">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-96x96">
+                                    <br><img src="/img/logo.png">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <h1 class="title">
+                                            ระบบจัดการการสอบ
+                                        </h1>
+                                        <h2 class="subtitle">
+                                            มหาวิทยาลัยบูรพา
+                                        </h2><br>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- ปุ่มออกจากระบบ -->
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="/login">
+                                ออกจากระบบ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- body -->
+    <section class="section has-background-light">
+        <div class="container">
+            <div class="columns">
+
+                <!-- box -->
+                <div class="column is-12">
+                    <div class="content is-medium">
+                        <div class="box">
+                            <h4 id="const" class="title is-3 has-text-centered">แก้ไขหรือลบข้อมูลการสอบ</h4>
+                            <div class="container">
+                                <form method="POST">
+                                    <div class="columns">
+                                        <div class="column is-11">
+                                            <div class="field is-horizontal">
+                                                <div class="field-body is-normal">
+                                                    <p class="subtitle is-5">วิชา: <%= exams.nameSubject %></p>
+                                                </div>
+                                                <div class="field-body is-normal">
+                                                    <p class="subtitle is-5">รหัสวิชา: <%= exams.numSubject %></p>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-body is-normal">
+                                                    <p class="subtitle is-5">วันที่สอบ: <%= exams.date %></p>
+                                                </div>
+                                                <div class="field-body is-normal">
+                                                    <p class="subtitle is-5">เวลาสอบ:
+                                                        <%= exams.timeF + " - " + exams.timeL %> น.</p>
+                                                </div>
+                                            </div>
+                                            <div class="field is-horizontal">
+                                                <div class="field-body is-normal">
+                                                    <p class="subtitle is-5">จำนวนนิสิตทั้งหมด: </p>
+                                                </div>
+                                                <div class="field-body is-normal">
+                                                    <p class="subtitle is-5">จำนวนนิสิตที่ยังไม่มีห้องสอบ: </p>
+                                                </div>
+                                            </div>
+
+                                        
+
+                                            <!-- table -->
+                                            <div class="columns">
+                                                <div class="column">
+                                                    <div class="card events-card">
+                                                        <header class="card-header">
+                                                            <p class="card-header-title">
+                                                                เพิ่มห้องสอบ
+                                                            </p>
+                                                        </header>
+                                                        <div class="card-table">
+                                                            <div class="content">
+                                                            
+                                                                    <table class="table is-narrow is-striped">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th class="numTH">วันที่</th>
+                                                                                <th class="dateTH">เวลา</th>
+                                                                                <th class="timeTH">ตึก</th>
+                                                                                <th class="numSubTH">ห้อง</th>
+                                                                                <th class="nameSubTH">กลุ่มเรียน</th>
+                                                                                <th class="nameSubTH">ผู้คุมสอบ</th>
+                                                                                <th class="actionTH">Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <% for(var j=0; j < roomExams.length; j++) { %>
+                                                                        <tbody>
+                                                                                
+                                                                            <tr>
+                                                                                <td class="numTH"><input
+                                                                                        class="input is-medium "
+                                                                                        type="date" name="date"
+                                                                                        
+                                                                                        placeholder="mm-dd-yyyyy"></td>
+                                                                                <td class="dateTH">
+                                                                                    <div class="field is-one-fifth">
+                                                                                        <p class="control">
+                                                                                            <input
+                                                                                                class="input is-medium "
+                                                                                                type="time" 
+                                                                                                name="timeF"
+                                                                                                placeholder="00.00">
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div class="field">
+                                                                                        <p class="control">
+                                                                                            &ensp; _ &ensp;
+                                                                                        </p>
+                                                                                    </div>
+                                                                                    <div class="field">
+                                                                                        <p class="control">
+                                                                                            <input
+                                                                                                class="input is-medium "
+                                                                                                type="time" 
+                                                                                                name="timeL"
+                                                                                                placeholder="00.00">
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="timeTH">
+                                                                                    <div class="select">
+                                                                                        <select required=""
+                                                                                            name="subject">
+                                                                                            <% for(var i=0; i < roomExams.length; i++) { %>
+                                                                                                <option disabled selected
+                                                                                                    value="<%= roomExams[i].build %>">
+                                                                                                    <%= roomExams[i].build %>
+                                                                                                </option><% } %>
+                                                                                            <% for(var i=0; i < build.length; i++) { %>
+                                                                                            <option
+                                                                                                value="<%= build[i]._id %>">
+                                                                                                <%= build[i].name %>
+                                                                                            </option>
+                                                                                            <% } %>
+
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="numSubTH">
+                                                                                    <div class="select">
+                                                                                        <select required=""
+                                                                                            name="subject">
+                                                                                            <% for(var i=0; i < roomExams.length; i++) { %>
+                                                                                                <option disabled selected
+                                                                                                    value="<%= roomExams[i].room %>">
+                                                                                                    <%= roomExams[i].room %>
+                                                                                                </option><% } %>
+                                                                                            <% for(var i=0; i < room.length; i++) { %>
+                                                                                            <option
+                                                                                                value="<%= room[i]._id %>">
+                                                                                                <%= room[i].roomname %>
+                                                                                            </option>
+                                                                                            <% } %>
+
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="nameSubTH">
+                                                                                    <div class="select">
+                                                                                        <select required=""
+                                                                                            name="subject">
+                                                                                            <% for(var i=0; i < roomExams.length; i++) { %>
+                                                                                                <option disabled selected
+                                                                                                    value="<%= roomExams[i].group %>">
+                                                                                                    <%= roomExams[i].group %>
+                                                                                                </option><% } %>
+                                                                                            <% for(var i=0; i < group.length; i++) { %>
+                                                                                            <option
+                                                                                                value="<%= group[i]._id %>">
+                                                                                                <%= group[i].groupSub %>
+                                                                                            </option>
+                                                                                            <% } %>
+
+                                                                                        </select>
+                                                                                    </div>
+                                                                                </td>
+                                                                                <td class="nameSubTH">
+                                                                                    <div class="select">
+                                                                                        <select required=""
+                                                                                            name="subject">
+                                                                                            <% for(var i=0; i < roomExams.length; i++) { %>
+                                                                                            <option disabled selected
+                                                                                                value="<%= roomExams[i].examiner %>">
+                                                                                                <%= roomExams[i].examiner %>
+                                                                                            </option><% } %>
+                                                                                            <% for(var i=0; i < teacher.length; i++) { %>
+                                                                                            <option
+                                                                                                value="<%= teacher[i]._id %>">
+                                                                                                <%= teacher[i].name %>
+                                                                                            </option>
+                                                                                            <% } %>
+
+                                                                                        </select>
+                                                                                    </div>
+
+
+                                                                                </td>
+                                                                                <td class="actionTH">
+                                                                                        <div class="field-body">
+                                                                                                <a type="submit"
+                                                                                                class="button is-info "
+                                                                                                value="บันทึก" href="/readExams/edit/<%= roomExams[j]._id %>">บันทึก</a>
+                                                                                                &ensp;
+                                                                                                <a type="submit"
+                                                                                                    class="button is-danger "
+                                                                                                    value="ลบ" href="/readExams/delete/<%= roomExams[j]._id %>">ลบ</a>
+                                                                                               
+                                                                                           
+                                                                                              </div>
+                                                                                      
+                                                                                </td>
+                                                                            </tr>
+                                                                            
+                                                                        </tbody><% } %>
+                                                                    </table>
+                                                       
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                            </div><br><br>
+                            
+                       
+
+
+                        </div>
+                    </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.js'></script>
+    <script>
+        window.addEventListener('resize', () => {
+            const divs = document.querySelectorAll(".menu-list");
+            if (window.innerWidth < 768) {
+                divs.forEach(div => div.classList.add("tags"));
+            }
+            else {
+                divs.forEach(div => div.classList.remove("tags"));
+            }
+        });
+    </script>
+</body>
+
+</html>

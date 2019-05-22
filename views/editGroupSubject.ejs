@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>แก้ไขกลุ่มเรียน</title>
+    <!-- logo title -->
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+    <meta charset="UTF-8">
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png"> -->
+
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.4/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel='stylesheet' href="../css/prism.css">
+    <link rel="stylesheet" href="../css/cheatsheet.css">
+
+</head>
+
+<body>
+<!-- หัวเว็บ -->
+<section class="hero is-info">
+    <div class="hero-head">
+        <nav class="navbar">
+            <div class="container">
+              <div class="navbar-brand">
+                <article class="media">
+                  <figure class="media-left">
+                    <p class="image is-96x96">
+                      <br><img src="./img/logo.png">
+                    </p>
+                  </figure>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <h1 class="title">
+                          ระบบจัดการการสอบ
+                        </h1>
+                        <h2 class="subtitle">
+                          มหาวิทยาลัยบูรพา
+                        </h2><br>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <!-- ปุ่มออกจากระบบ -->
+              <div id="navbarMenuHeroA" class="navbar-menu">
+                <div class="navbar-end">
+                  <a class="navbar-item">
+                    ออกจากระบบ
+                  </a>
+                </div>
+              </div>
+            </div>
+        </nav>
+    </div>
+</section>
+
+    <!-- body -->
+    <section class="section has-background-light">
+        <div class="container">
+            <div class="columns">
+
+                <!-- box -->
+                <div class="column is-12">
+                    <div class="content is-medium">
+                        <div class="box">
+                            <h4 id="const" class="title is-3 has-text-centered">แก้ไขกลุ่มเรียน</h4>
+                            <div class="container">
+                                <form method="POST" action="/manageGroupSubject/update/<%= gsub._id %>">
+                                    <div class="columns">
+                                        <div class="column is-11">
+
+                                            <!-- Search  card -->
+                                            <div class="card-content">
+                                                <div class="content">
+                                                    <form method="POST" action="/manageGroupSubject/update/<%= gsub._id %>">
+                                                        <div class="field is-full">
+                                                            <div class="field-body">
+                                                                <div class="field-label is-normal">
+                                                                    <p class="subtitle is-5">กลุ่ม : </p>
+                                                                </div>
+                                                                <div class="field">
+                                                                    <p class="control">
+                                                                        <input class="input is-medium " type="text" 
+                                                                        name="groupSub" id="groupSub" value="<%= gsub.groupSub %>"
+                                                                            placeholder="กรอกกลุ่ม">
+                                                                    </p>
+                                                                </div>                                            
+                                                            </div><br>
+                                                            
+                                                        </div>
+                                                    </form>
+                                                    
+
+                                            <div class="card-content level-right">
+                                                <div class="content">
+                                                    <a class="button is-danger is-medium" href="/manageExams">ยกเลิก</a>
+                                                    <input type="submit" class="button is-info is-medium" href="/manageExams" value="บันทึก">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+    </section>
+
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.js'></script>
+    <script>
+        window.addEventListener('resize', () => {
+            const divs = document.querySelectorAll(".menu-list");
+            if (window.innerWidth < 768) {
+                divs.forEach(div => div.classList.add("tags"));
+            }
+            else {
+                divs.forEach(div => div.classList.remove("tags"));
+            }
+        });
+    </script>
+</body>
+
+</html>

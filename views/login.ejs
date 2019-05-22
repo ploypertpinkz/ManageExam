@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>เข้าสู่ระบบ</title>
+    <!-- logo title -->
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.4/css/bulma.min.css" />
+    <style type="text/css">
+        html,
+        body {
+            font-family: 'Open Sans';
+        }
+
+        img {
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+        h3 {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <section class="hero is-fullheight is-default is-bold is-info">
+        <div class="hero-body">
+            <div class="container">
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-96x96">
+                            <img src="./img/logo.png">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content">
+                            <p>
+                                <h1 class="title">
+                                    ระบบจัดการการสอบ
+                                </h1>
+                                <h2 class="subtitle">
+                                    มหาวิทยาลัยบูรพา
+                                </h2>
+                            </p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="columns is-vcentered">
+                    <div class="column is-5">
+                        <figure class="image is-4by3">
+                            <img src="./img/5426_View-3.jpg" alt="Description">
+                        </figure>
+                    </div>
+
+                    <div class="column is-6 is-offset-1">
+                        <h3 class="title has-text-white">Login</h3>
+                        <p class="subtitle has-text-white">Please login to proceed.</p>
+                        <div class="box">
+                            <form method="POST">
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input is-large" type="text" name="username" autofocus=""
+                                            required="" placeholder="Username">
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="control">
+                                        <input class="input is-large" type="password" name="password" required=""
+                                            maxlength="8" placeholder="Password">
+                                    </div>
+                                </div>
+                                <button class="button is-block is-info is-large is-fullwidth"
+                                    type="submit">Login</button>
+                            </form>
+                        </div>
+                        <p class="has-text-white">
+                            <a href="https://myid.buu.ac.th/">Forgot Password</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="../js/bulma.js"></script>
+</body>
+
+</html>

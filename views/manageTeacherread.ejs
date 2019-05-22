@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Manage Teacher</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.4/css/bulma.min.css'>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link rel='stylesheet' href="../css/prism.css">
+  <link rel="stylesheet" href="../css/cheatsheet.css">
+</head>
+
+<body>
+  <section class="hero is-info">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-96x96">
+                  <br><img src="/img/logo.png">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <h1 class="title">
+                      ระบบจัดการการสอบ
+                    </h1>
+                    <h2 class="subtitle">
+                      มหาวิทยาลัยบูรพา
+                    </h2><br>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- ปุ่มออกจากระบบ -->
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="/login">
+                ออกจากระบบ
+            </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section has-background-light">
+    <div class="container">
+      <div class="columns">
+        <!-- left menu -->
+        <div class="column is-2 ">
+          <div class="box ">
+            <aside class="menu">
+              <ul class="menu-list">
+                <li><a href="/main">หน้าหลัก</a></li>
+                <li><a href="/teacher">ถอยกลับ</a></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+
+        <!-- box -->
+        <div class="column is-10">
+          <div class="content is-medium">
+            <div class="box">
+              <h4 id="const" class="title is-3 has-text-centered">ดูข้อมูลอาจารย์</h4>
+              <div class="container">
+                <div class="columns">
+                  <div class="column is-9">
+                    <form method="get">
+                      <div class="form-group">
+                        <label for="item">ชื่อ-นามสกุล : <%= teacher.name %></label>
+                      </div>
+                      <div class="form-group">
+                        <label for="item">อีเมล์ : <%= teacher.email %></label>
+                      </div>
+                      <div class="form-group">
+                        <label for="item">ห้องทำงาน : <%= teacher.office %></label>  
+                      </div>
+                      <div class="form-group">
+                        <label for="item">ประวัติการทำงาน : <%= teacher.education%></label>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+</body>
+
+</html>
+
+
+
+<!-- <!DOCTYPE html>  
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+  
+  
+    <title>read</title>
+</head>
+<body>
+        <section class="hero is-primary">
+                <div class="hero-body">
+                  <div class="container">
+                    <h1 class="title">
+                      Primary title
+                    </h1>
+                    <h2 class="subtitle">
+                      Primary subtitle
+                    </h2>
+                  </div>
+                </div>
+              </section>        
+
+        <div class="container">
+                <h1>Read</h1>
+                <form method="get">
+                  <div class="form-group">
+                    <label for="item">ชื่อ-นามสกุล</label>
+                  <p> <%= teacher.name %></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="item">อีเมล์</label>
+                  <p><%= teacher.email %></p> 
+                  </div>
+                  <div class="form-group">
+                    <label for="item">ห้องทำงาน</label>
+                  <p><%= teacher.office %></p>
+                  </div>
+                  <div class="form-group">
+                    <label for="item">ประวัติการทำงาน</label>
+                  <p><%= teacher.education%></p> 
+                  </div>
+    
+                
+                </form>
+            </div>
+
+    
+</body>
+</html> -->

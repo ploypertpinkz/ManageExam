@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>จัดการนิสิต</title>
+    <!-- logo title -->
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.4/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel='stylesheet' href="../css/prism.css">
+    <link rel="stylesheet" href="../css/cheatsheet.css">
+
+  </head>
+  <body >
+
+    <!-- หัวเว็บ -->
+    <section class="hero is-info">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-96x96">
+                                    <br><img src="./img/logo.png">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <h1 class="title">
+                                            ระบบจัดการการสอบ
+                                        </h1>
+                                        <h2 class="subtitle">
+                                            มหาวิทยาลัยบูรพา
+                                        </h2><br>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- ปุ่มออกจากระบบ -->
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="/login">
+                                ออกจากระบบ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+     <!-- body -->
+     <section class="section has-background-light">
+      <div class="container">
+          <div class="columns">
+              <!-- left menu -->
+              <div class="column is-2">
+                  <div class="box ">
+                      <aside class="menu">
+                          <ul class="menu-list">
+                              <li><a href="/main">หน้าหลัก</a></li>
+                              <li><a href="/main">ถอยกลับ</a></li>
+                          </ul>
+                      </aside>
+                  </div>
+              </div>
+
+              <!-- box -->
+              <div class="column is-10">
+                <div class="content is-medium">
+                    <div class="box">
+                        <h4 id="const" class="title is-3 has-text-centered">จัดการนิสิต</h4>
+                        <div class="container">
+                          <table class="table table-striped" style="width: 78%;">
+                            <thead>
+                                <td><a href="/student/create/<%= student[i] %>"  class="button is-success">+เพิ่ม</a></td>
+                              <tr>
+                                <td><b>รหัสนิสิต</b></td>
+                                <td><b>ชื่อ-นามสกุล</b></td>
+                                <td><b>คณะ</b></td>
+                                <td colspan="3"><b></b></td>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <% for(var i=0; i < student.length; i++) { %>
+                                
+                              <tr>
+                                <td><%= student[i].code %></td>
+                                <td><%= student[i].name %></td>
+                                <td><%= student[i].faculty %></td>
+                                
+                                <td><a href="/student/read/<%= student[i]._id %>" class="button is-info">ดู</a></td>
+                                <td><a href="/student/edit/<%= student[i]._id %>" class="button is-link">แก้ไข</a></td>
+                                <td><a href="/student/delete/<%= student[i]._id %>" class="button is-danger">ลบ</a></td>
+                                
+                              </tr>
+                              <% } %> 
+                            </tbody>
+                          </table>
+                        </div>
+                        
+                
+                        
+
+
+
+                        <br><br><br><br><br><br><br><br><br><br><br>
+
+                    </div>
+                </div>
+            </div>
+    
+
+   
+  </body>
+</html>
+

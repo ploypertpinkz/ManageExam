@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Node js Express Tutorial</title>
+  <!-- <link rel="stylesheet" href="/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="css.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/public/css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+
+</head>
+
+<body>
+  <section class="hero is-info">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-96x96">
+                  <br><img src="./img/logo.png">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <h1 class="title">
+                      ระบบจัดการการสอบ
+                    </h1>
+                    <h2 class="subtitle">
+                      มหาวิทยาลัยบูรพา
+                    </h2><br>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- ปุ่มออกจากระบบ -->
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="/login">
+                ออกจากระบบ
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+  <!-- ------------------------------------------------------------------------------------ -->
+  <section class="section has-background-light">
+    <div class="container">
+      <div class="columns">
+        <!-- left menu -->
+        <div class="column is-2 ">
+          <div class="box ">
+            <aside class="menu">
+              <ul class="menu-list">
+                <li><a href="/main">หน้าหลัก</a></li>
+                <li><a href="/main">ถอยกลับ</a></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+
+        <!-- box -->
+        <div class="column is-10">
+          <div class="content is-medium">
+            <div class="box">
+              <h4 id="const" class="title is-3 has-text-centered">จัดการห้อง</h4>
+              <div class="container">
+                <div class="columns">
+                  <div class="column is-9">
+                    <table class="table is-fullwidth">
+                      <thead>
+                        <td>
+                          <a href="/room/create/<%= room[i] %>" class="button is-success">+เพิ่ม</a>
+                            
+                        </td>
+                        <tr>
+
+                          <td><b>ชื่อห้อง</b></td>
+                          <td><b>ตึก</b></td>
+                          <td><b>ชนิด</b></td>
+                          <td><b>จำนวนที่นั่ง</b></td>
+                          <td colspan="3"><b>Action</b></td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <% for(var i=0; i < room.length; i++) { %>
+                          <tr>
+                            <td><%= room[i].roomname %></td>
+                            <td><%= room[i].build %></td>
+                            <td><%= room[i].roomtype %></td>
+                            <td><%= room[i].numSeats %></td>
+                            <td><a href="/room/read/<%= room[i]._id %>" class="button is-info">ดู</a></td>
+                            <td><a href="/room/manageRoomedit/<%= room[i]._id %>" class="button is-link">แก้ไข</a></td>
+                            <td><a href="/room/delete/<%= room[i]._id %>" class="button is-danger">ลบ</a></td>
+                          </tr>
+                          <% } %>
+                        </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+
+</body>
+
+</html>

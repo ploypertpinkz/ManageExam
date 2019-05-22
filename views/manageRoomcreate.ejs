@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>EJS Engine</title>
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+</head>
+
+<body>
+
+  <section class="hero is-info">
+    <div class="hero-head">
+      <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <article class="media">
+              <figure class="media-left">
+                <p class="image is-96x96">
+                  <br><img src="/img/logo.png">
+                </p>
+              </figure>
+              <div class="media-content">
+                <div class="content">
+                  <p>
+                    <h1 class="title">
+                      ระบบจัดการการสอบ
+                    </h1>
+                    <h2 class="subtitle">
+                      มหาวิทยาลัยบูรพา
+                    </h2><br>
+                  </p>
+                </div>
+              </div>
+            </article>
+          </div>
+          <!-- ปุ่มออกจากระบบ -->
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <div class="navbar-end">
+              <a class="navbar-item" href="/login">
+                ออกจากระบบ
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+  <section class="section has-background-light">
+    <div class="container">
+      <div class="columns">
+        <!-- left menu -->
+        <div class="column is-2 ">
+          <div class="box ">
+            <aside class="menu">
+              <ul class="menu-list">
+                <li><a href="/main">หน้าหลัก</a></li>
+                <li><a href="/room">ถอยกลับ</a></li>
+              </ul>
+            </aside>
+          </div>
+        </div>
+
+        <!-- box -->
+        <div class="column is-10">
+          <div class="content is-medium">
+            <div class="box">
+              <h4 id="const" class="title is-3 has-text-centered">เพิ่มข้อมูลห้องเรียน</h4>
+              <div class="container">
+                <div class="columns">
+                  <div class="column is-9">
+                    <form method="post" action="/room/post/">
+                      <div class="field">
+                        <label class="label">ตึก</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="build" name="build">
+                              <option value="IF" name="build">IF</option>
+                              <option value="K" name="build">K</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label">ชื่อห้อง</label>
+                        <div class="control">
+                          <input class="input" type="text" id="roomname" name="roomname" required="">
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label">ชั้น</label>
+                        <div class="control">
+                          <div class="select">
+                            <select id="floor" name="floor">
+                              <option value="1" name="floor">1</option>
+                              <option value="2" name="floor">2</option>
+                              <option value="3" name="floor">3</option>
+                              <option value="4" name="floor">4</option>
+                              <option value="5" name="floor">5</option>
+                              <option value="6" name="floor">6</option>
+                              <option value="7" name="floor">7</option>
+                              <option value="8" name="floor">8</option>
+                              <option value="9" name="floor">9</option>
+                              <option value="10" name="floor">10</option>
+                              <option value="11" name="floor">11</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label">ชนิด</label>
+                        <div class="control">
+                          <div class="roomtype">
+                            <select id="roomtype" name="roomtype">
+                              <option value="Lecture" name="roomtype">Lecture</option>
+                              <option value="Lab" name="roomtype">Lab</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label">จำนวนที่นั่ง</label>
+                        <div class="control">
+                          <input class="input" type="text" id="numSeats" name="numSeats" required="">
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label">จำนวนแถว</label>
+                        <div class="control">
+                          <input class="input" type="text" id="rows" name="rows" required="">
+                        </div>
+                      </div>
+
+                      <div class="field">
+                        <label class="label">จำนวนคอลัม</label>
+                        <div class="control">
+                          <input class="input" type="text" id="columns" name="columns" required="">
+                        </div>
+                      </div>
+
+                      <div class="field is-grouped">
+                        <div class="control">
+                          <button type="submit" class="button is-link">บันทึก</button>
+                        </div>
+                        <div class="control">
+                          <a type="cancel" class="text is-danger" href="/officer">ยกเลิก</a>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
+  </section>
+</body>
+
+</html>

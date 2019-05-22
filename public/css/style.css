@@ -1,0 +1,25 @@
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+table {
+    border-spacing: 0;
+}
+
+tbody, thead tr { display: block; }
+
+tbody {
+    height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody td, thead th {
+    width: 180px;
+}
+
+thead th:last-child {
+    width: 360px;
+}

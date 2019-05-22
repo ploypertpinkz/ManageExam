@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>จัดการการสอบ</title>
+    <!-- logo title -->
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+
+    <meta charset="UTF-8">
+    <!-- <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon.png"> -->
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel='stylesheet' href='https://unpkg.com/bulma@0.7.4/css/bulma.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel='stylesheet' href="../css/prism.css">
+    <link rel="stylesheet" href="../css/cheatsheet.css">
+
+</head>
+
+<body>
+    <!-- หัวเว็บ -->
+    <section class="hero is-info">
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <article class="media">
+                            <figure class="media-left">
+                                <p class="image is-96x96">
+                                    <br><img src="/img/logo.png">
+                                </p>
+                            </figure>
+                            <div class="media-content">
+                                <div class="content">
+                                    <p>
+                                        <h1 class="title">
+                                            ระบบจัดการการสอบ
+                                        </h1>
+                                        <h2 class="subtitle">
+                                            มหาวิทยาลัยบูรพา
+                                        </h2><br>
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <!-- ปุ่มออกจากระบบ -->
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a class="navbar-item" href="/login">
+                                ออกจากระบบ
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- body -->
+    <section class="section has-background-light">
+        <div class="container">
+            <div class="columns">
+                <!-- left menu -->
+                <div class="column is-2 ">
+                    <div class="box ">
+                        <aside class="menu">
+                            <ul class="menu-list">
+                                <li><a href="/main">หน้าหลัก</a></li>
+                                <li>
+                                    <a href="/manageExams">จัดการการสอบ</a>
+                                    <ul>
+                                        <li><a href="/addExams">เพิ่มการสอบ</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="/main">ถอยกลับ</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+
+                <!-- box -->
+                <div class="column is-10">
+                    <div class="content is-medium">
+                        <div class="box">
+                            <h4 id="const" class="title is-3 has-text-centered">ข้อมูลการสอบ</h4>
+                            <div class="container">
+                                <form method="GET">
+                                <div class="columns">
+                                    <div class="column is-9">
+                                        <div class="field is-horizontal">
+                                            <div class="field-body is-normal">
+                                                <p class="subtitle is-5">รหัสวิชา: <%= exams.numSubject %></p>
+                                            </div>
+                                            <div class="field-body is-normal">
+                                                <p class="subtitle is-5">วิชา: <%= exams.nameSubject %></p>
+                                            </div>
+                                        </div>
+
+                                        <div class="field is-horizontal">
+                                            <div class="field-body is-normal">
+                                                <p class="subtitle is-5">จำนวนห้องสอบ: </p>
+                                            </div>
+                                        </div>
+
+
+
+                                        <!-- table -->
+                                        <div class="columns">
+                                            <div class="column">
+                                                <div class="card events-card">
+                                                    <header class="card-header">
+                                                        <p class="card-header-title">
+                                                            ตารางห้องสอบ
+                                                        </p>
+                                                    </header>
+                                                    <div class="card-table">
+                                                        <div class="content">
+                                                            <form method="GET">
+                                                                <table class="table is-narrow is-striped">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="numTH">ลำดับ</th>
+                                                                            <th class="dateTH">วันที่</th>
+                                                                            <th class="timeTH">เวลา</th>
+                                                                            <th class="numSubTH">ตึก-ห้อง</th>
+                                                                            <th class="nameSubTH">กลุ่มเรียน</th>
+                                                                 
+                                                                            <th class="nameSubTH">ผู้คุมสอบ</th>
+                                                                            <th class="nameSubTH">สถานะ</th>
+                                                                            <th class="actionTH">Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <% for(var i=0; i < roomExams.length; i++) { %>
+                                                                        <tr>
+                                                                            <td class="numTH"><%= i+1 %></td>
+                                                                            <td class="dateTH"><%= roomExams[i].date %></td>
+                                                                            <td class="timeTH"><%= roomExams[i].timeF %>
+                                                                                - <%= roomExams[i].timeL %></td>
+                                                                            <td class="numSubTH"><%= roomExams[i].build + "-" + roomExams[i].room %></td>
+                                                                            <td class="nameSubTH"><%= roomExams[i].group %></td>
+                                                                            <td class="nameSubTH"><%= roomExams[i].examiner %></td>
+                                                                       
+                                                                            <td class="nameSubTH">รอยืนยัน</td>
+                                                                            <td class="actionTH">
+                                                                                <div class="field-body">
+                                                                                    <a type="submit"
+                                                                                        class="button is-success is-outlined"
+                                                                                        value="ยืนยัน">ยืนยัน</a>
+                                                                                    &ensp;
+        
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                        <% } %>
+                                                                    </tbody>
+                                                                </table>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="card-content level-right">
+                                            <div class="content">
+                                                <a class="button is-danger is-medium" href="/manageExams">กลับ</a>
+                                                <a class="button is-info is-medium" href="/readExams/editInfoExams/<%= exams._id %>">แก้ไข</a>
+            
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <script async type="text/javascript" src="../js/bulma.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/prism/9000.0.1/prism.js'></script>
+    <script>
+        window.addEventListener('resize', () => {
+            const divs = document.querySelectorAll(".menu-list");
+            if (window.innerWidth < 768) {
+                divs.forEach(div => div.classList.add("tags"));
+            }
+            else {
+                divs.forEach(div => div.classList.remove("tags"));
+            }
+        });
+    </script>
+
+</body>
+
+</html>
